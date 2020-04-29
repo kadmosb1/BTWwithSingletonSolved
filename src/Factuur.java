@@ -1,11 +1,9 @@
 public class Factuur {
 
     private Klant klant;
-    private IBTWVerlegging verlegging;
 
-    public Factuur (Klant klant, IBTWVerlegging verlegging) {
+    public Factuur (Klant klant) {
         this.klant = klant;
-        this.verlegging = verlegging;
     }
 
     private String getKlantregels () {
@@ -17,6 +15,7 @@ public class Factuur {
     }
 
     private String getVerleggingsregel () {
+        IBTWVerlegging verlegging = BTWVerleggingAdapter.getInstance ();
         return String.format ("%s", verlegging.getVerleggingsregel (klant.getBTWNummer()));
     }
 
@@ -33,6 +32,8 @@ public class Factuur {
     }
 
     public String toString () {
+
+        IBTWVerlegging verlegging = BTWVerleggingAdapter.getInstance ();
 
         return  getKlantregels () +
                 getTitelregel () +

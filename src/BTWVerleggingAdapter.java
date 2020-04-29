@@ -3,6 +3,7 @@ public class BTWVerleggingAdapter implements IBTWVerlegging {
     private static BTWVerleggingAdapter singleton;
 
     public static BTWVerleggingAdapter getInstance () {
+
         if (singleton == null) {
             singleton = new BTWVerleggingAdapter ();
         }
@@ -10,11 +11,7 @@ public class BTWVerleggingAdapter implements IBTWVerlegging {
         return singleton;
     }
 
-    private BTWVerlegging verlegging;
-
-    private BTWVerleggingAdapter () {
-        verlegging = BTWVerlegging.getInstance ();
-    }
+    private BTWVerleggingAdapter () { }
 
     private String getLandcode (String btwNummer) {
         return btwNummer.substring (0, 2);
@@ -22,6 +19,7 @@ public class BTWVerleggingAdapter implements IBTWVerlegging {
 
     @Override
     public boolean btwMoetWordenVerlegd(String btwNummer) {
+        BTWVerlegging verlegging = BTWVerlegging.getInstance ();
         return verlegging.btwMoetWordenVerlegd (getLandcode (btwNummer));
     }
 
@@ -35,5 +33,4 @@ public class BTWVerleggingAdapter implements IBTWVerlegging {
             return "";
         }
     }
-
 }
