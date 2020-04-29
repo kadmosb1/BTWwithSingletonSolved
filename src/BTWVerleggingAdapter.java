@@ -3,7 +3,11 @@ public class BTWVerleggingAdapter implements IBTWVerlegging {
     private static BTWVerleggingAdapter singleton;
 
     public static BTWVerleggingAdapter getInstance () {
-        return singleton == null ? new BTWVerleggingAdapter () : singleton;
+        if (singleton == null) {
+            singleton = new BTWVerleggingAdapter ();
+        }
+
+        return singleton;
     }
 
     private BTWVerlegging verlegging;
