@@ -42,4 +42,8 @@ public class Factuur {
                 getOptellingsregels () +
                 new BTWBerekening (verlegging, klant.getBTWNummer());
     }
+
+    public void print () {
+        System.out.println (this);
+    }
 }
