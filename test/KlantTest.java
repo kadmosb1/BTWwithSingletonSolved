@@ -5,19 +5,17 @@ import static org.junit.Assert.*;
 
 public class KlantTest {
 
-    Werelddeel europa;
+    BTWVerlegging btwVerlegging;
 
     @Before
     public void init () {
-        europa = new Werelddeel("Europa");
-        europa.addLand (new Land ("Nederland", "NL"));
-        europa.addLand (new Land ("België", "BE"));
-        europa.addLand (new Land ("Duitsland", "DE"));
+        btwVerlegging = BTWVerlegging.getInstance ();
     }
 
     @Test
     public void testBTWPercentages () {
-        assertFalse (europa.landLigtInEuropa("CA"));
-        assertTrue (europa.landLigtInEuropa("BE"));
+        assertFalse (btwVerlegging.btwMoetWordenVerlegd ("CA"));
+        assertFalse (btwVerlegging.btwMoetWordenVerlegd ("NL"));
+        assertTrue (btwVerlegging.btwMoetWordenVerlegd ("DE"));
     }
 }
