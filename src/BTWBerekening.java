@@ -1,14 +1,15 @@
 public class BTWBerekening implements IBTWBerekening {
 
-    IBTWVerlegging verlegging;
     String btwNummer;
 
     public BTWBerekening (IBTWVerlegging verlegging, String btwNummer) {
-        this.verlegging = verlegging;
         this.btwNummer = btwNummer;
     }
 
     public String toString () {
+
+        IBTWVerlegging verlegging = BTWVerleggingAdapter.getInstance ();
+
         if (verlegging.btwMoetWordenVerlegd (btwNummer)) {
             return "";
         }

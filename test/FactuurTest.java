@@ -9,12 +9,7 @@ public class FactuurTest {
         Postcode postcode = new Postcode (2521, "EN");
         Adres adres = new Adres (straat, postcode, "DEN HAAG");
         Klant klant = new Klant ("De Haagse Hogeschool", adres, btwNummer);
-
-        /*
-         * Deze regel is de enige regel die in de test is veranderd.
-         */
-        IBTWVerlegging verlegging = BTWVerleggingAdapter.getInstance ();
-        return new Factuur (klant, verlegging);
+        return new Factuur (klant);
     }
 
     @Test
