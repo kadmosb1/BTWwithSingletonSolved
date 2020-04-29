@@ -2,7 +2,7 @@ public class BTWBerekening implements IBTWBerekening {
 
     String btwNummer;
 
-    public BTWBerekening (IBTWVerlegging verlegging, String btwNummer) {
+    public BTWBerekening (String btwNummer) {
         this.btwNummer = btwNummer;
     }
 

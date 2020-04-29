@@ -33,14 +33,12 @@ public class Factuur {
 
     public String toString () {
 
-        IBTWVerlegging verlegging = BTWVerleggingAdapter.getInstance ();
-
         return  getKlantregels () +
                 getTitelregel () +
                 getVerleggingsregel () +
                 getFactuurregels () +
                 getOptellingsregels () +
-                new BTWBerekening (verlegging, klant.getBTWNummer());
+                new BTWBerekening (klant.getBTWNummer());
     }
 
     public void print () {
